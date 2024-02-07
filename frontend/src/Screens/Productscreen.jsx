@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
 
 const ProductScreen = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [qty, setQty] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -33,7 +33,7 @@ const ProductScreen = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart(id, qty));
-    navigate('/cart'); // Use navigate to navigate to '/cart' route
+    navigate('/cart');
   };
 
   if (loading) {

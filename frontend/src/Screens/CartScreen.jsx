@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams, useLocation, useSearchParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap';
 import Message from '../Components/Message';
@@ -8,7 +8,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 function CartScreen() {
     const { id } = useParams();
     const location = useLocation();
-    const [search, setSearch] = useSearchParams();
+    // const [search, setSearch] = useSearchParams();
     const navigate = useNavigate();
 
     const productId = id;
