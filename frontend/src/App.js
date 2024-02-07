@@ -9,6 +9,7 @@ import Productscreen from "./Screens/Productscreen";
 import LoginScreen from "./Screens/LoginScreen";
 import RegisterScreen from "./Screens/RegisterScreen";
 import CartScreen from "./Screens/CartScreen";
+import ShippingScreen from "./Screens/ShippingScreen";
 
 // need mag kakasunod amp
 
