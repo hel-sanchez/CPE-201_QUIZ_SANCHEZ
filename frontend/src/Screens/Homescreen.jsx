@@ -18,7 +18,7 @@ function Homescreen() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="mt-5 mb-5">
       {loading ? (
         <Loader />
       ) : error ? (
@@ -26,7 +26,7 @@ function Homescreen() {
       ) : (
         <div>
           <h1>Latest Products</h1>
-          <Row>
+          <Row className="text-center">
             {products.map(product => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={product} />

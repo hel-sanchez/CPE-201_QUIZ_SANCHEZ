@@ -35,7 +35,7 @@ function LoginScreen() {
 
     return (
         <FormContainer>
-            <h1>Sign In</h1>
+            <h1 className="mt-5">Sign In</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='email'>
                     <Form.Label>Email Address</Form.Label>
@@ -44,6 +44,7 @@ function LoginScreen() {
                         placeholder='Enter email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        className="mb-3"
                     />
                 </Form.Group>
 
@@ -54,6 +55,7 @@ function LoginScreen() {
                         placeholder='Enter password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        className="mb-3"
                     />
                 </Form.Group>
 
@@ -61,7 +63,7 @@ function LoginScreen() {
                     Sign In
                 </Button>
             </Form>
-            <Row className='py-3'>
+            <Row className='py-3 mb-5'>
                 <Col>
                     Not yet registered? <Link to='/register'>Register</Link>
                 </Col>

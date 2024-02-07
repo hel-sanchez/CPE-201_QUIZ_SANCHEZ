@@ -1,12 +1,11 @@
 main {
   min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-h3 {
-  padding: 1rem;
-}
-
-.rating span{
+.rating span {
   margin: 0.1rem;
 }

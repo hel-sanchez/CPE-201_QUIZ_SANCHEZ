@@ -25,7 +25,7 @@ function RegisterScreen() {
 
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
+      <h1 className="mt-5">Sign Up</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -34,6 +34,7 @@ function RegisterScreen() {
             placeholder='Enter your name'
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="mb-3"
           />
         </Form.Group>
         <Form.Group controlId='email'>
@@ -43,6 +44,7 @@ function RegisterScreen() {
             placeholder='Enter email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="mb-3"
           />
         </Form.Group>
         <Form.Group controlId='password'>
@@ -52,6 +54,7 @@ function RegisterScreen() {
             placeholder='Enter password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="mb-3"
           />
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
@@ -61,6 +64,7 @@ function RegisterScreen() {
             placeholder='Confirm password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            className="mb-3"
           />
         </Form.Group>
         <Button type='submit' variant='primary'>
@@ -68,7 +72,7 @@ function RegisterScreen() {
         </Button>
       </Form>
       <Row className='py-3'>
-        <Col>
+        <Col className="mb-3">
           Already registered? <Link to='/login'>Sign In</Link>
         </Col>
       </Row>

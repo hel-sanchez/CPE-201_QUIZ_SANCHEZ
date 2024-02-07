@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
+import { Row, Col, Image, ListGroup, Button } from "react-bootstrap";
+import Rating from "../Components/Rating";
+import axios from "axios";
 
 const ProductScreen = () => {
   const { id } = useParams();
@@ -50,25 +53,84 @@ const ProductScreen = () => {
 
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <img src={product.image} alt={product.name} />
-      <p>{product.description}</p>
-      <p>{product.price}</p>
+    <Row className="mt-5">
+      <Col md={6}>
+        <Image src={product.image} alt={product.name} fluid></Image>
+      </Col>
 
-      <div>
-        <label>Quantity:</label>
-        <select value={qty} onChange={(e) => setQty(Number(e.target.value))}>
-          {[...Array(product.countInStock).keys()].map((x) => (
-            <option key={x + 1} value={x + 1}>
-              {x + 1}
-            </option>
-          ))}
-        </select>
-      </div>
+      <Col md={4}>
+        <ListGroup variant="flush">
+          <ListGroup.Item className="mt-5 text-center">
+            <h3><strong>{product.name}</strong></h3>
+          </ListGroup.Item>
 
-      <button onClick={handleAddToCart}>Add to Cart</button>
-    </div>
+          <ListGroup.Item>
+            <Rating
+              value={product.rating}
+              text={`${product.numReviews} reviews`}
+              color={"#f8e825"}
+            />
+          </ListGroup.Item>
+
+          <ListGroup.Item className="text-center">
+            <Row>
+              <Col>Price:</Col>
+              <Col>
+                <strong>${product.price}</strong>
+              </Col>
+            </Row>
+          </ListGroup.Item>
+
+          <ListGroup.Item className="text-center">
+            <Row>
+              <Col>Quantity:</Col>
+              <Col>
+                <select value={qty} onChange={(e) => setQty(Number(e.target.value))}>
+                  {[...Array(product.countInStock).keys()].map((x) => (
+                    <option key={x + 1} value={x + 1}>
+                      {x + 1}
+                    </option>
+                  ))}
+                </select>
+              </Col>
+            </Row>
+          </ListGroup.Item>
+
+          <ListGroup.Item className="text-center">
+            <Row>
+              <Col>Description:</Col>
+              <Col>{product.description}</Col>
+            </Row>
+          </ListGroup.Item>
+
+          <ListGroup.Item className="text-center">
+            <Row>
+              <Col>Availabiity:</Col>
+              <Col>
+                {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+              </Col>
+            </Row>
+          </ListGroup.Item>
+
+          <ListGroup.Item className="items-center">
+            <Row>
+              <Button
+                onClick={handleAddToCart}
+                className="btn-block"
+                type="button"
+                disabled={product.countInStock === 0}
+              >
+                Add to Cart!
+              </Button>
+            </Row>
+          </ListGroup.Item>
+        </ListGroup>
+      </Col>
+
+      <Link to="/" className="border border-black btn btn-light my-3 mt-5">
+        Go Back
+      </Link>
+    </Row>
   );
 };
 

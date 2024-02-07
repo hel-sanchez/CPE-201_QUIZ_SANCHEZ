@@ -34,9 +34,9 @@ function CartScreen() {
     }
 
     return (
-        <Row>
+        <Row className="mt-5 mb-5">
             <Col md={8}>
-                <h1>Shopping Cart</h1>
+                <h1 className="mb-2">Shopping Cart</h1>
                 {cartItems.length === 0 ? (
                     <Message>
                         Your cart is empty <Link to='/'>Go Back</Link>
@@ -46,7 +46,7 @@ function CartScreen() {
                         {cartItems.map((item) => (
                             <ListGroup.Item key={item.product}>
                                 <Row>
-                                    <Col md={2}>
+                                    <Col md={2} className="mb-3">
                                         <Image src={item.image} alt={item.name} fluid rounded />
                                     </Col>
                                     <Col md={3}>
