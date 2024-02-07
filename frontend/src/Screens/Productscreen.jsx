@@ -127,7 +127,7 @@ const ProductScreen = () => {
         </ListGroup>
       </Col>
 
-      <Link to="/" className="border border-black btn btn-light my-3 mt-5">
+      <Link to="/" className="border border-black btn btn-light my-3 mt-5 mb-5">
         Go Back
       </Link>
     </Row>
